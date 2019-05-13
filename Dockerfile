@@ -2,7 +2,7 @@ FROM ubuntu:xenial
 
 LABEL maintainer="Tafess Kelecha kele2920@stthomas.edu"
 
-EXPOSE 8090
+EXPOSE 8080
 
 RUN apt-get update && \
 
@@ -12,10 +12,7 @@ RUN apt-get update && \
 
     python-dev
 
-ADD webapp webapp
-
-WORKDIR /webapp
-
+COPY ./site.py  /app
 RUN pip install -r requirements.txt
 
 ENTRYPOINT ["python"]
